@@ -7,7 +7,7 @@ export interface NcpConfig {
   smsServiceId?: string;
   /** SENS 알림톡 서비스 ID (alimtalk 사용 시 필수) */
   alimtalkServiceId?: string;
-  /** Gov 환경 여부 (default: true) - gov-ntruss.com vs ntruss.com */
+  /** Gov 환경 여부 (default: false) - gov-ntruss.com vs ntruss.com */
   isGov?: boolean;
 }
 

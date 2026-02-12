@@ -12,7 +12,7 @@ export class NcpHttpClient {
   constructor(config: NcpConfig) {
     this.accessKey = config.accessKey;
     this.secretKey = config.secretKey;
-    const env = config.isGov !== false ? 'gov' : 'standard';
+    const env = config.isGov === true ? 'gov' : 'standard';
     this.baseUrls = BASE_URLS[env];
   }
 

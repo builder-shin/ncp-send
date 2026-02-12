@@ -150,6 +150,22 @@ describe('NcpHttpClient', () => {
     );
   });
 
+  it('should use standard base URL by default when isGov is not set', async () => {
+    const defaultClient = new NcpHttpClient({ accessKey: 'testAccessKey', secretKey: 'testSecretKey' });
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: () => Promise.resolve({}),
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    await defaultClient.request('POST', 'sens', '/sms/v2/services/test/messages');
+    expect(fetchMock).toHaveBeenCalledWith(
+      expect.stringContaining('sens.apigw.ntruss.com'),
+      expect.any(Object),
+    );
+  });
+
   it('should include correct headers in request', async () => {
     const fetchMock = vi.fn().mockResolvedValue({
       ok: true,

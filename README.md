@@ -32,7 +32,7 @@ const client = new NcpSend({
   secretKey: 'YOUR_SECRET_KEY',
   smsServiceId: 'YOUR_SMS_SERVICE_ID',
   alimtalkServiceId: 'YOUR_ALIMTALK_SERVICE_ID',
-  isGov: true, // Gov 환경 사용 시 (기본값: true)
+  isGov: true, // Gov 환경 사용 시 (기본값: false)
 });
 
 // SMS 발송
@@ -79,7 +79,7 @@ const mailResult = await client.mail.send({
 | `secretKey` | `string` | Yes | - | NCP API Secret Key |
 | `smsServiceId` | `string` | No | - | SENS SMS 서비스 ID (SMS 사용 시 필수) |
 | `alimtalkServiceId` | `string` | No | - | SENS 알림톡 서비스 ID (알림톡 사용 시 필수) |
-| `isGov` | `boolean` | No | `true` | Gov 환경 여부 (gov-ntruss.com vs ntruss.com) |
+| `isGov` | `boolean` | No | `false` | Gov 환경 여부 (gov-ntruss.com vs ntruss.com) |
 
 ## SMS API 사용법
 
@@ -570,24 +570,24 @@ NCP는 두 가지 환경을 제공합니다:
 
 | 환경 | `isGov` 값 | SENS API URL | Mail API URL |
 |------|-----------|--------------|--------------|
-| **Gov** (기본) | `true` | `sens.apigw.gov-ntruss.com` | `mail.apigw.gov-ntruss.com` |
-| **Standard** | `false` | `sens.apigw.ntruss.com` | `mail.apigw.ntruss.com` |
+| **Gov** | `true` | `sens.apigw.gov-ntruss.com` | `mail.apigw.gov-ntruss.com` |
+| **Standard** (기본) | `false` | `sens.apigw.ntruss.com` | `mail.apigw.ntruss.com` |
 
 ```typescript
-// Gov 환경 (기본값)
+// Gov 환경
 const govClient = new NcpSend({
   accessKey: 'KEY',
   secretKey: 'SECRET',
   smsServiceId: 'SERVICE_ID',
-  isGov: true, // 또는 생략
+  isGov: true,
 });
 
-// Standard 환경
+// Standard 환경 (기본값)
 const stdClient = new NcpSend({
   accessKey: 'KEY',
   secretKey: 'SECRET',
   smsServiceId: 'SERVICE_ID',
-  isGov: false,
+  isGov: false, // 또는 생략
 });
 ```
 

@@ -72,7 +72,7 @@ describe('NcpSend', () => {
     vi.restoreAllMocks();
   });
 
-  it('should default isGov to true', () => {
+  it('should default isGov to false', () => {
     const client = new NcpSend({
       accessKey: 'testAccessKey',
       secretKey: 'testSecretKey',
