@@ -1,6 +1,6 @@
 {
   "name": "@builder-shin/ncp-send",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "NCP SENS (SMS/알림톡) and Cloud Outbound Mailer API wrapper for Node.js",
   "exports": {
     ".": {
