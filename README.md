@@ -2,8 +2,10 @@
 
 NCP(Naver Cloud Platform)의 SENS(SMS/알림톡) 및 Cloud Outbound Mailer(이메일) API를 래핑하는 TypeScript npm 패키지입니다.
 
-[![npm version](https://img.shields.io/npm/v/@builder-shin/ncp-send.svg)](https://www.npmjs.com/package/@builder-shin/ncp-send)
+[![GitHub Packages](https://img.shields.io/badge/npm-GitHub%20Packages-blue)](https://github.com/builder-shin/ncp-send/packages)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+> 이 패키지는 [GitHub Packages](https://github.com/builder-shin/ncp-send/packages)를 통해 발행됩니다.
 
 ## 특징
 
@@ -14,6 +16,35 @@ NCP(Naver Cloud Platform)의 SENS(SMS/알림톡) 및 Cloud Outbound Mailer(이�
 - **완전한 API 커버리지**: SMS, LMS, MMS, 알림톡, 이메일 발송 지원
 
 ## 설치
+
+이 패키지는 GitHub Packages npm 레지스트리를 통해 배포됩니다. 설치 전 레지스트리 설정이 필요합니다.
+
+### 1. GitHub Packages 레지스트리 설정
+
+프로젝트 루트에 `.npmrc` 파일을 생성하거나 추가합니다:
+
+```
+@builder-shin:registry=https://npm.pkg.github.com
+```
+
+### 2. 인증 설정
+
+GitHub Personal Access Token(PAT)이 필요합니다. [Settings > Developer settings > Personal access tokens](https://github.com/settings/tokens)에서 `read:packages` 권한을 가진 토큰을 생성한 후:
+
+```bash
+npm login --registry=https://npm.pkg.github.com
+# Username: GitHub 사용자명
+# Password: Personal Access Token
+# Email: GitHub 이메일
+```
+
+또는 `.npmrc`에 직접 추가:
+
+```
+//npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN
+```
+
+### 3. 패키지 설치
 
 ```bash
 npm install @builder-shin/ncp-send
